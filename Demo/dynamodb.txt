@@ -1,0 +1,145 @@
+aws configure
+AKIA4B73HYE2L6EAZVEM
+ZkBHSM2TNsLmP20sSl2XcuK8FUstsowmOwsB58LO
+ap-northeast-2
+json
+aws dynamodb create-table \
+    --table-name 'Current-PV-Generation' \
+    --attribute-definitions \
+        AttributeName=PlaceID,AttributeType=S \
+        AttributeName=Location,AttributeType=S \
+    --key-schema \
+        AttributeName=PlaceID,KeyType=HASH \
+        AttributeName=Location,KeyType=RANGE \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5
+
+aws dynamodb put-item \
+    --table-name 'Current-PV-Generation' \
+    --item \
+        '{"PlaceID": {"S": "101"}, "Location": {"S": "Forest"}, "Installed capacity MWh": {"S": "6.1"}, "PowGen MWh": {"S": "4.7"}, "Efficiency": {"S": "4.7"}, "Region": {"S": "Seoul"}, "PlaceName": {"S": "Seongbuk"}}'
+
+aws dynamodb put-item \
+    --table-name 'Current-PV-Generation' \
+    --item \
+        '{"PlaceID": {"S": "101"}, "Location": {"S": "Building"}, "Installed capacity MWh": {"S": "6.5"}, "PowGen MWh": {"S": "5.5"}, "Efficiency": {"S": "4.7"}, "Region": {"S": "Seoul"}, "PlaceName": {"S": "Seongbuk"}}'
+
+aws dynamodb put-item \
+    --table-name 'Current-PV-Generation' \
+    --item \
+        '{"PlaceID": {"S": "102"}, "Location": {"S": "Forest"}, "Installed capacity MWh": {"S": "5.4"}, "PowGen MWh": {"S": "3.2"} , "Efficiency": {"S": "4.7"}, "Region": {"S": "Busan"}, "PlaceName": {"S": "Gimhae"}}'
+                            
+aws dynamodb put-item \
+    --table-name 'Current-PV-Generation' \
+    --item \
+        '{"PlaceID": {"S": "102"}, "Location": {"S": "Building"}, "Installed capacity MWh": {"S": "5.8"}, "PowGen MWh": {"S": "3.9"} , "Efficiency": {"S": "4.7"}, "Region": {"S": "Busan"}, "PlaceName": {"S": "Gimhae"}}'
+
+
+aws dynamodb delete-table --table-name 'Current-PV-Generation'
+
+aws dynamodb create-table \
+    --table-name 'Charge-Discharge-Status' \
+    --attribute-definitions \
+        AttributeName=PlaceID,AttributeType=S \
+        AttributeName=Location,AttributeType=S \
+    --key-schema \
+        AttributeName=PlaceID,KeyType=HASH \
+        AttributeName=Location,KeyType=RANGE \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5
+
+aws dynamodb put-item \
+    --table-name 'Charge-Discharge-Status' \
+    --item \
+        '{"PlaceID": {"S": "101"}, "Location": {"S": "ESS-PVLink"}, "FillRate %": {"S": "80"}, "DischargeRate %": {"S": "70"}, "Installed Capacity MWh": {"S": "10"}, "Region": {"S": "Seoul"}, "PlaceName": {"S": "Seongbuk"}}'
+
+aws dynamodb put-item \
+    --table-name 'Charge-Discharge-Status' \
+    --item \
+        '{"PlaceID": {"S": "101"}, "Location": {"S": "ESS-Building"}, "FillRate %": {"S": "85"}, "DischargeRate %": {"S": "75"}, "Installed Capacity MWh": {"S": "9.7"}, "Region": {"S": "Seoul"}, "PlaceName": {"S": "Seongbuk"}}'
+
+aws dynamodb put-item \
+    --table-name 'Charge-Discharge-Status' \
+    --item \
+        '{"PlaceID": {"S": "102"}, "Location": {"S": "ESS-PVLink"}, "FillRate %": {"S": "82"}, "DischargeRate %": {"S": "71"} , "Installed Capacity MWh": {"S": "8.2"}, "Region": {"S": "Busan"}, "PlaceName": {"S": "Gimhae"}}'
+                            
+aws dynamodb put-item \
+    --table-name 'Charge-Discharge-Status' \
+    --item \
+        '{"PlaceID": {"S": "102"}, "Location": {"S": "ESS-Building"}, "FillRate %": {"S": "90"}, "DischargeRate %": {"S": "78"} , "Installed Capacity MWh": {"S": "8.7"}, "Region": {"S": "Busan"}, "PlaceName": {"S": "Gimhae"}}'
+
+aws dynamodb delete-table --table-name 'Charge-Discharge-Status'
+
+
+
+
+aws dynamodb create-table \
+    --table-name 'PV-Energy-Status' \
+    --attribute-definitions \
+        AttributeName=PVPlaceID,AttributeType=S \
+        AttributeName=Location,AttributeType=S \
+    --key-schema \
+        AttributeName=PVPlaceID,KeyType=HASH \
+        AttributeName=Location,KeyType=RANGE \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5
+
+aws dynamodb put-item \
+    --table-name 'PV-Energy-Status' \
+    --item \
+        '{"PVPlaceID": {"S": "1001"}, "Location": {"S": "Forest"}, "Total PowGen %": {"S": "7.9"}, "GenTime-hour %": {"S": "5.4"}, "Installed Capacity MWh": {"S": "11.5"}}'
+
+aws dynamodb put-item \
+    --table-name 'PV-Energy-Status' \
+    --item \
+        '{"PVPlaceID": {"S": "1002"}, "Location": {"S": "Building"}, "Total PowGen %": {"S": "9.4"}, "GenTime-hour %": {"S": "18"}, "Installed Capacity MWh": {"S": "14.3"}}'
+
+aws dynamodb delete-table --table-name 'PV-Energy-Status'
+
+
+aws dynamodb create-table \
+    --table-name 'Charge-Energy-Status' \
+    --attribute-definitions \
+        AttributeName=ChargePlaceID,AttributeType=S \
+        AttributeName=Location,AttributeType=S \
+    --key-schema \
+        AttributeName=ChargePlaceID,KeyType=HASH \
+        AttributeName=Location,KeyType=RANGE \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5
+
+aws dynamodb put-item \
+    --table-name 'Charge-Energy-Status' \
+    --item \
+        '{"ChargePlaceID": {"S": "2001"}, "Location": {"S": "Forest"}, "Charge rate %": {"S": "75"}, "Operating-rate %": {"S": "80"}, "Installed Capacity MW": {"S": "7.5"}}'
+
+aws dynamodb put-item \
+    --table-name 'Charge-Energy-Status' \
+    --item \
+        '{"ChargePlaceID": {"S": "2002"}, "Location": {"S": "PV Connection"}, "Charge rate %": {"S": "82"}, "Operating-rate %": {"S": "86.3"}, "Installed Capacity MW": {"S": "6.3"}}'
+
+aws dynamodb delete-table --table-name 'Charge-Energy-Status'
+
+
+aws dynamodb create-table \
+    --table-name 'Operational' \
+    --attribute-definitions \
+        AttributeName=RegionID,AttributeType=S \
+        AttributeName=RegionName,AttributeType=S \
+    --key-schema \
+        AttributeName=RegionID,KeyType=HASH \
+        AttributeName=RegionName,KeyType=RANGE \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5
+
+aws dynamodb put-item \
+    --table-name 'Operational' \
+    --item \
+        '{"RegionID": {"S": "10"}, "RegionName": {"S": "Seoul"}, "Normal": {"S": "5"}, "Communication Error": {"S": "1"}, "Warning": {"S": "1"}}'
+
+aws dynamodb put-item \
+    --table-name 'Operational' \
+    --item \
+        '{"RegionID": {"S": "11"}, "RegionName": {"S": "Busan"}, "Normal": {"S": "3"}, "Communication Error": {"S": "0"}, "Warning": {"S": "2"}}'
+
+aws dynamodb delete-table --table-name 'Operational'

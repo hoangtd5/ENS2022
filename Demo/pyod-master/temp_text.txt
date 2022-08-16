@@ -1,0 +1,42 @@
+**Note on Python 2.7**\ :
+The maintenance of Python 2.7 will be stopped by January 1, 2020 (see `official announcement <https://github.com/python/devguide/pull/344>`_).
+To be consistent with the Python change and PyOD's dependent libraries, e.g., scikit-learn, we will
+stop supporting Python 2.7 in the near future (dates are still to be decided). We encourage you to use
+Python 3.5 or newer for the latest functions and bug fixes. More information can
+be found at `Moving to require Python 3 <https://python3statement.org/>`_.
+
+**Note on Python 2.7**\ :
+The maintenance of Python 2.7 will be stopped by January 1, 2020 (see `official announcement <https://github.com/python/devguide/pull/344>`_)
+To be consistent with the Python change and PyOD's dependent libraries, e.g., scikit-learn, we will
+stop supporting Python 2.7 in the near future (dates are still to be decided). We encourage you to use
+Python 3.5 or newer for the latest functions and bug fixes. More information can
+be found at `Moving to require Python 3 <https://python3statement.org/>`_.
+
+**Warning 2**\ :
+Running examples needs **matplotlib**, which may throw errors in conda
+virtual environment on mac OS. See reasons and solutions `mac_matplotlib <https://github.com/yzhao062/pyod/issues/6>`_.
+
+
+.. image:: https://ci.appveyor.com/api/projects/status/1kupdy87etks5n3r/branch/master?svg=true
+   :target: https://ci.appveyor.com/project/yzhao062/pyod/branch/master
+   :alt: Build status
+
+.. image:: https://circleci.com/gh/yzhao062/pyod.svg?style=svg
+   :target: https://circleci.com/gh/yzhao062/pyod
+   :alt: Circle CI
+
+.. image:: https://img.shields.io/badge/slack-join-green
+   :target: https://join.slack.com/t/pyod/shared_invite/zt-vprc4w2q-G2XV2Iou~H84yGSvrh0f6A
+   :alt: slack
+
+.. image:: https://pepy.tech/badge/pyod/month
+   :target: https://pepy.tech/project/pyod
+   :alt: Downloads
+
+.. image:: https://mybinder.org/badge_logo.svg
+   :target: https://mybinder.org/v2/gh/yzhao062/pyod/master
+   :alt: Binder
+
+-----
+
+**Build Status & Coverage & Maintainability & License**
