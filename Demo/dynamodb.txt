@@ -1,6 +1,6 @@
 aws configure
-AKIA4B73HYE2L6EAZVEM
-ZkBHSM2TNsLmP20sSl2XcuK8FUstsowmOwsB58LO
+AKIA4B73HYE2L6EA______________________ZVEM
+ZkBHSM2TNsLmP20sSl2XcuK8FUstsowmOws_________________B58LO
 ap-northeast-2
 json
 aws dynamodb create-table \
